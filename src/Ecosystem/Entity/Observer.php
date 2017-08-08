@@ -15,18 +15,11 @@ namespace Ecosystem\Entity;
  *
  * @package Ecosystem\Entity
  */
-class Observer
+class Observer extends EcosystemEntity
 {
-    /**
-     * Порядковый номер
-     *
-     * @var int
-     */
-    private $id;
-
     public function describeEcosystemObject()
     {
-        echo 'Observer number: ' . $this->id .
+        echo 'Observer number: ' . $this->getId() .
             'Date: ' . date('d.m.Y H:i:s');
     }
 }
