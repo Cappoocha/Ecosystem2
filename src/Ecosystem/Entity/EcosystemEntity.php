@@ -17,6 +17,14 @@ namespace Ecosystem\Entity;
  */
 class EcosystemEntity
 {
+
+    /**
+     * @var int
+     */
+    private $id;
+
+    private static $numid = 1;
+
     /**
      * @var string
      */
@@ -41,6 +49,9 @@ class EcosystemEntity
      */
     public function __construct($xPosition, $yPosition, $name)
     {
+        $this->id = self::$numid;
+        self::$numid ++;
+
         $this->xPosition = $xPosition;
         $this->yPosition = $yPosition;
         $this->name = $name;
@@ -68,5 +79,13 @@ class EcosystemEntity
     public function getYPosition()
     {
         return $this->yPosition;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
