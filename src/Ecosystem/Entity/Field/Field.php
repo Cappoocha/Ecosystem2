@@ -84,4 +84,12 @@ class Field
         return $this->fieldCells[$x][$y];
     }
 
+    /**
+     * @return FieldCell[]
+     */
+    public function getFieldCells()
+    {
+        return $this->fieldCells;
+    }
+
 }
