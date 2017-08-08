@@ -6,4 +6,9 @@
  * Time: 20:28
  */
 
-echo 'Start';
+include "Autoload.php";
+
+use Ecosystem\Controller;
+
+$controller = new Controller();
+$controller->createEcosystem();
