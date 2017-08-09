@@ -25,26 +25,26 @@ class EntityFactory
      */
     public function createPlant(Field $field)
     {
-        return new Plant($field->getRandomX(), $field->getRandomY(), 'Plant');
+        return new Plant($field->createCoordinate(), $field->createCoordinate(), 'Plant');
     }
 
     public function createPredator(Field $field)
     {
-        return new Predator($field->getRandomX(), $field->getRandomY(), 'Predator');
+        return new Predator($field->createCoordinate(), $field->createCoordinate(), 'Predator');
     }
 
     public function createHugePredator(Field $field)
     {
-        return new HugePredator($field->getRandomX(), $field->getRandomY(), 'HugePredator');
+        return new HugePredator($field->createCoordinate(), $field->createCoordinate(), 'HugePredator');
     }
 
     public function createHerbivorous(Field $field)
     {
-        return new Herbivorous($field->getRandomX(), $field->getRandomY(), 'Herbivorous');
+        return new Herbivorous($field->createCoordinate(), $field->createCoordinate(), 'Herbivorous');
     }
 
     public function createObserver(Field $field)
     {
-        return new Observer($field->getRandomX(), $field->getRandomY(), 'Observer');
+        return new Observer($field->createCoordinate(), $field->createCoordinate(), 'Observer');
     }
 }

@@ -25,40 +25,50 @@ class Controller
      */
     private $entityFactory;
 
-    public function __construct()
+    /**
+     * @var Field
+     */
+    private $field;
+
+    /**
+     * Controller constructor.
+     * @param $fieldSize
+     */
+    public function __construct($fieldSize)
     {
         $this->entityFactory = new EntityFactory();
+
+        $this->field = new Field($fieldSize);
+
+        $plantsCount = rand(0, $fieldSize);
+        $predatorCount = rand(0, $fieldSize);
+        $hugePredatorCount = rand(0, $fieldSize);
+        $herbivorousCount = rand(0, $fieldSize);
+        $observerCount = rand(0, 3);
+
+        echo "Create plants" . PHP_EOL;
+        $this->createPlants($this->field, $plantsCount);
+
+        echo "Create predators" . PHP_EOL;
+        $this->createPredators($this->field, $predatorCount);
+
+        echo "Create huge predators" . PHP_EOL;
+        $this->createHugePredators($this->field, $hugePredatorCount);
+
+        echo "Create herbivorous" . PHP_EOL;
+        $this->createHerbivorous($this->field, $herbivorousCount);
+
+        echo "Create observers" . PHP_EOL;
+        $this->createObservers($this->field, $observerCount);
     }
 
     /**
      * Создаем экосистему
-     *
-     * @param int $xFieldLimit
-     * @param int $yFieldLimit
-     * @param int $watchDuration
+     * @param $watchDuration
      */
-    public function createEcosystem($xFieldLimit, $yFieldLimit, $watchDuration)
+    public function createEcosystem($watchDuration)
     {
-        echo "Create field" . PHP_EOL;
-        $field = new Field($xFieldLimit, $yFieldLimit);
-
-        $maxEntitiesCount = $xFieldLimit * $yFieldLimit;
-        $plantsCount = rand(0, $maxEntitiesCount);
-        $predatorCount = rand(0, $maxEntitiesCount);
-        $hugePredatorCount = rand(0, $maxEntitiesCount);
-        $herbivorousCount = rand(0, $maxEntitiesCount);
-        $observerCount = rand(0, 3);
-
-        echo "Create plants" . PHP_EOL;
-        $this->createPlants($field, $plantsCount);
-
-        echo "Create predators" . PHP_EOL;
-        $this->createPredators($field, $predatorCount);
-        $this->createHugePredators($field, $hugePredatorCount);
-        $this->createHerbivorous($field, $herbivorousCount);
-        $this->createObservers($field, $observerCount);
-
-        var_dump($field->getFieldCells());
+        $this->field->displayObjects();
     }
 
     /**

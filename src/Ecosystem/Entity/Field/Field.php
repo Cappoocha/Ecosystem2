@@ -20,18 +20,11 @@ use Ecosystem\Entity\EcosystemEntity;
 class Field
 {
     /**
-     * Ограничение поля по координате X
+     * Размер поля
      *
      * @var int
      */
-    private $xLimit;
-
-    /**
-     * Ограничение поля по координате Y
-     *
-     * @var int
-     */
-    private $yLimit;
+    private $size;
 
     /**
      * @var FieldCell[]
@@ -41,29 +34,23 @@ class Field
     /**
      * Field constructor.
      *
-     * @param int $xLimit
-     * @param int $yLimit
+     * @param int $size
+     *
      */
-    public function __construct($xLimit, $yLimit)
+    public function __construct($size)
     {
-        $this->xLimit = $xLimit;
-        $this->yLimit = $yLimit;
+        $this->size = $size;
 
-        for ($x = 0; $x < $this->xLimit; $x++) {
-            for($y = 0; $y < $this->yLimit; $y++) {
+        for ($x = 0; $x < $this->size; $x++) {
+            for($y = 0; $y < $this->size; $y++) {
                 $this->fieldCells[$x][$y] = new FieldCell($x, $y);
             }
         }
     }
 
-    public function getRandomX()
+    public function getSize()
     {
-        return rand(0, $this->xLimit - 1);
-    }
-
-    public function getRandomY()
-    {
-        return rand(0, $this->yLimit - 1);
+        return rand(0, $this->size - 1);
     }
 
     /**
@@ -71,7 +58,8 @@ class Field
      */
     public function addObject(EcosystemEntity $object)
     {
-        $this->getFieldCell($object->getXPosition(), $object->getYPosition())->addObject($object);
+        $fieldCell = $this->getFieldCell($object->getXPosition(), $object->getYPosition());
+        $fieldCell->addObject($object);
     }
 
     /**
@@ -90,6 +78,34 @@ class Field
     public function getFieldCells()
     {
         return $this->fieldCells;
+    }
+
+    /**
+     * @return int
+     */
+    public function createCoordinate()
+    {
+        return rand(0, $this->size - 1);
+    }
+
+    public function displayObjects()
+    {
+        foreach ($this->fieldCells as $fieldCell) {
+            /** @var FieldCell $object */
+            foreach ($fieldCell as $object) {
+                echo 'Coordinates: ' . $object->getXPosition() . ':' . $object->getYPosition() . ' ' . PHP_EOL;
+
+                $ecosystemObjects = $object->getEcosystemObjects();
+                if (count($ecosystemObjects) > 0) {
+                    foreach ($ecosystemObjects as $ecosystemEntity) {
+                        echo $ecosystemEntity->getName() . ' ';
+                    }
+                } else {
+                    echo '----';
+                }
+                echo PHP_EOL;
+            }
+        }
     }
 
 }

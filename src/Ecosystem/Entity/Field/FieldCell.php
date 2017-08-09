@@ -47,4 +47,28 @@ class FieldCell
     {
         $this->ecosystemObjects[$object->getId()] = $object;
     }
+
+    /**
+     * @return int
+     */
+    public function getXPosition()
+    {
+        return $this->xPosition;
+    }
+
+    /**
+     * @return int
+     */
+    public function getYPosition()
+    {
+        return $this->yPosition;
+    }
+
+    /**
+     * @return EcosystemEntity[]
+     */
+    public function getEcosystemObjects()
+    {
+        return $this->ecosystemObjects;
+    }
 }

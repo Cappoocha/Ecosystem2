@@ -10,18 +10,17 @@ include "Autoload.php";
 
 use Ecosystem\Controller;
 
-if (count($argv) < 4) {
+if (count($argv) < 3) {
     echo 'Enter the coordinates and watch duration';
     return;
 }
 
-$xFieldLimit = $argv[1];
-$yFieldLimit = $argv[2];
-$watchDuration = $argv[3];
+$fieldSize = $argv[1];
+$watchDuration = $argv[2];
 
 echo "Create ecosystem" . PHP_EOL;
 
-$controller = new Controller();
-$controller->createEcosystem($xFieldLimit, $yFieldLimit, $watchDuration);
+$controller = new Controller($fieldSize);
+$controller->createEcosystem($watchDuration);
 
 echo "Finish";
