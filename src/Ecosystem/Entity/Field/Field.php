@@ -48,9 +48,12 @@ class Field
         }
     }
 
+    /**
+     * @return int
+     */
     public function getSize()
     {
-        return rand(0, $this->size - 1);
+        return $this->size;
     }
 
     /**
@@ -60,6 +63,12 @@ class Field
     {
         $fieldCell = $this->getFieldCell($object->getXPosition(), $object->getYPosition());
         $fieldCell->addObject($object);
+    }
+
+    public function deleteObject(EcosystemEntity $object)
+    {
+        $fieldCell = $this->getFieldCell($object->getXPosition(), $object->getYPosition());
+        $fieldCell->deleteObject($object);
     }
 
     /**

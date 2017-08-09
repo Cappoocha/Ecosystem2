@@ -49,6 +49,16 @@ class FieldCell
     }
 
     /**
+     * @param EcosystemEntity $object
+     */
+    public function deleteObject(EcosystemEntity $object)
+    {
+        if (array_key_exists($object->getId(), $this->ecosystemObjects)) {
+            unset($this->ecosystemObjects[$object->getId()]);
+        }
+    }
+
+    /**
      * @return int
      */
     public function getXPosition()

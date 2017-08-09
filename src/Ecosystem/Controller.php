@@ -10,6 +10,7 @@ namespace Ecosystem;
 
 use Ecosystem\Entity\Field\Field;
 use Ecosystem\Service\EntityFactory;
+use Ecosystem\Service\MoveService;
 
 /**
  * Контроллер для управления экосистемой
@@ -26,6 +27,11 @@ class Controller
     private $entityFactory;
 
     /**
+     * @var MoveService
+     */
+    private $moveService;
+
+    /**
      * @var Field
      */
     private $field;
@@ -37,6 +43,7 @@ class Controller
     public function __construct($fieldSize)
     {
         $this->entityFactory = new EntityFactory();
+        $this->moveService = new MoveService();
 
         $this->field = new Field($fieldSize);
 
@@ -69,6 +76,7 @@ class Controller
     public function createEcosystem($watchDuration)
     {
         $this->field->displayObjects();
+        $this->moveService->move($this->field);
     }
 
     /**
