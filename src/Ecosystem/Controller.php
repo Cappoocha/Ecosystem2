@@ -67,6 +67,8 @@ class Controller
 
         echo "Create observers" . PHP_EOL;
         $this->createObservers($this->field, $observerCount);
+
+        echo PHP_EOL;
     }
 
     /**
@@ -76,7 +78,14 @@ class Controller
     public function createEcosystem($watchDuration)
     {
         $this->field->displayObjects();
-        $this->moveService->move($this->field);
+
+        for ($i = 0; $i < $watchDuration; $i++) {
+            echo PHP_EOL;
+            echo 'Move' . $i . PHP_EOL;
+            echo PHP_EOL;
+            $this->moveService->move($this->field);
+            $this->field->displayObjects();
+        }
     }
 
     /**
