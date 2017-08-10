@@ -17,12 +17,14 @@ namespace Ecosystem\Entity;
  */
 class EcosystemEntity
 {
-
     /**
      * @var int
      */
     private $id;
 
+    /**
+     * @var int
+     */
     private static $numid = 1;
 
     /**

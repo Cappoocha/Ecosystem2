@@ -11,6 +11,12 @@ namespace Ecosystem\Entity\Field;
 
 use Ecosystem\Entity\EcosystemEntity;
 
+/**
+ * Ячейка поля
+ *
+ * Class FieldCell
+ * @package Ecosystem\Entity\Field
+ */
 class FieldCell
 {
     /**
