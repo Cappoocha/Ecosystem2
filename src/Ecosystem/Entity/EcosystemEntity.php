@@ -74,11 +74,27 @@ class EcosystemEntity
     }
 
     /**
+     * @param int $xPosition
+     */
+    public function setXPosition($xPosition)
+    {
+        $this->xPosition = $xPosition;
+    }
+
+    /**
      * @return int
      */
     public function getYPosition()
     {
         return $this->yPosition;
+    }
+
+    /**
+     * @param int $yPosition
+     */
+    public function setYPosition($yPosition)
+    {
+        $this->yPosition = $yPosition;
     }
 
     /**

@@ -107,7 +107,7 @@ class Field
                 $ecosystemObjects = $object->getEcosystemObjects();
                 if (count($ecosystemObjects) > 0) {
                     foreach ($ecosystemObjects as $ecosystemEntity) {
-                        echo $ecosystemEntity->getName() . ' ';
+                        echo $ecosystemEntity->getName() . $ecosystemEntity->getId() . ' ';
                     }
                 } else {
                     echo '----';
@@ -116,5 +116,4 @@ class Field
             }
         }
     }
-
 }
