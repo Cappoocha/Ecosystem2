@@ -11,6 +11,8 @@
     "require": {
     },
     "autoload": {
-        "Ecosystem\\": "/src/Ecosystem/"
+        "psr-4": {
+          "Ecosystem\\": "src/Ecosystem"
+        }
     }
 }
