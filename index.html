@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.css">
+        <meta charset="UTF-8">
+        <title>Ecosystem</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                Ecosystem
+            </div>
+            <div class="content">
+                <form action="Start.php" method="post" enctype="multipart/form-data" novalidate>
+                    <div class="form-group">
+                        <label for="fieldSize">Размер поля:</label>
+                        <input type="text" class="form-control" id="fieldSize" name="fieldSize" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="repeatedCount">Количество повторов:</label>
+                        <input type="text" class="form-control" id="repeatedCount" name="repeatedCount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fieldSize">Загрузить параметры из файла</label>
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                    </div>
+                    <button type="submit" class="btn btn-default">Запустить</button>
+                </form>
+            </div>
+        </div>
+        <script src="/js/jquery/jquery-3.2.1.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="/js/bootstrap/bootstrap.min.js"></script>
+    </body>
+</html>
