@@ -9,6 +9,7 @@
 namespace Ecosystem;
 
 use Ecosystem\Entity\Field\Field;
+use Ecosystem\OutputService\OutputServiceInterface;
 use Ecosystem\Service\EntityFactory;
 use Ecosystem\Service\MoveService;
 
@@ -75,16 +76,16 @@ class Controller
      * Создаем экосистему
      * @param $watchDuration
      */
-    public function createEcosystem($watchDuration)
+    public function createEcosystem(OutputServiceInterface $outputService, $watchDuration)
     {
-        $this->field->displayObjects();
+        $outputService->displayField($this->field);
 
         for ($i = 0; $i < $watchDuration; $i++) {
             echo PHP_EOL;
             echo 'Move' . $i . PHP_EOL;
             echo PHP_EOL;
             $this->moveService->move($this->field);
-            $this->field->displayObjects();
+            $outputService->displayField($this->field);
         }
     }
 

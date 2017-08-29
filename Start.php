@@ -6,21 +6,22 @@
  * Time: 20:28
  */
 
-include "Autoload.php";
-
+//include "Autoload.php";
 use Ecosystem\Controller;
+use Ecosystem\OutputService\Html;
 
-if (count($argv) < 3) {
-    echo 'Enter the coordinates and watch duration';
-    return;
-}
+require_once __DIR__.'/vendor/autoload.php';
 
-$fieldSize = $argv[1];
-$watchDuration = $argv[2];
+//$mySqlRepository = new \Ecosystem\Repository\MySQL\MySQLRepository('localhost', 'root', 'root', 'ecosystem', 3360);
+//$mySqlRepository->connect();
+//$mySqlRepository->getAll();
+//$mySqlRepository->disconnect();
 
-echo "Create ecosystem" . PHP_EOL;
+//use Ecosystem\Controller;
 
+$fieldSize = $_POST['fieldSize'];
+$repeatedCount = $_POST['repeatedCount'];
+
+$outputService = new Html();
 $controller = new Controller($fieldSize);
-$controller->createEcosystem($watchDuration);
-
-echo "Finish";
+$controller->createEcosystem($outputService, $repeatedCount);
