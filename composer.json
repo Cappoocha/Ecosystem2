@@ -1,0 +1,16 @@
+{
+    "name": "cappoocha/ecosystem",
+    "description": "Ecosystem project",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Cappoocha",
+            "email": "katerinacappuccino@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "Ecosystem\\": "/src/Ecosystem/"
+    }
+}
